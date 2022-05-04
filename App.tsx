@@ -1,13 +1,18 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
+import ModalProvider from './src/modal/ModalProvider';
+import Main from './src/Main';
 
 const App: React.VFC = () => {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <ModalProvider>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+        <Main />
+      </View>
+    </ModalProvider>
   );
 };
 
