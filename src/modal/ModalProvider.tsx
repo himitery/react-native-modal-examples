@@ -17,47 +17,47 @@ export interface ModalInterface {
 
 export const ModalContext = createContext<ModalInterface>({} as ModalInterface);
 
-const ModalProvider: React.FC<{ children: JSX.Element }> = ({children}) => {
-	const [visible, setVisible] = useState<boolean>(false);
-	const [modal, setModal] = useState<JSX.Element>(<></>);
-	const [style, setStyle] = useState<StyleProp<ViewStyle>>();
+const ModalProvider: React.FC<{ children: JSX.Element }> = ({ children }) => {
+  const [visible, setVisible] = useState<boolean>(false);
+  const [modal, setModal] = useState<JSX.Element>(<></>);
+  const [style, setStyle] = useState<StyleProp<ViewStyle>>();
 
-	const value = useMemo<ModalInterface>(
-		() => ({
-			visible,
-			setVisible,
-			setModal,
-			setStyle
-		}),
-		[]
-	);
+  const value = useMemo<ModalInterface>(
+    () => ({
+      visible,
+      setVisible,
+      setModal,
+      setStyle,
+    }),
+    []
+  );
 
-	const handleOnPress = useCallback(() => {
-		setVisible(false)
-	}, [setVisible])
+  const handleOnPress = useCallback(() => {
+    setVisible(false);
+  }, [setVisible]);
 
-	return (
-		<ModalContext.Provider value={value}>
-			<Conditional condition={visible}>
-				<TouchableWithoutFeedback onPress={handleOnPress}>
-					<View style={[styles.container, style]}>{modal}</View>
-				</TouchableWithoutFeedback>
-			</Conditional>
+  return (
+    <ModalContext.Provider value={value}>
+      <Conditional condition={visible}>
+        <TouchableWithoutFeedback onPress={handleOnPress}>
+          <View style={[styles.container, style]}>{modal}</View>
+        </TouchableWithoutFeedback>
+      </Conditional>
 
-			{children}
-		</ModalContext.Provider>
-	);
+      {children}
+    </ModalContext.Provider>
+  );
 };
 
 const styles = StyleSheet.create({
-	container: {
-		position: 'absolute',
-		flex: 1,
-		width: '100%',
-		height: '100%',
-		zIndex: 10000,
-		backgroundColor: 'rgba(0, 0, 0, 0.08)',
-	},
+  container: {
+    position: 'absolute',
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    zIndex: 10000,
+    backgroundColor: 'rgba(0, 0, 0, 0.08)',
+  },
 });
 
 export default ModalProvider;

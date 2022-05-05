@@ -29,36 +29,36 @@ const StatusModal: React.VFC = () => {
 };
 
 const styles = StyleSheet.create({
-	container: {
-		width: "100%",
-		paddingHorizontal: 20,
-	},
-	innerContainer: {
-		width: "100%",
-		padding: 14,
-		borderRadius: 12,
-		alignItems: 'center',
-		justifyContent: 'center',
-		backgroundColor: 'white'
-	},
-	content: {
-		fontWeight: "600",
-		fontSize: 14,
-		marginVertical: 12,
-	},
-	button: {
-		width: "100%",
-		paddingVertical: 12,
-		alignItems: "center",
-		justifyContent: "center",
-		borderRadius: 12,
-		backgroundColor: "#EE8432"
-	},
-	buttonText: {
-		fontWeight: "600",
-		fontSize: 14,
-		color: "white"
-	}
-})
+  container: {
+    width: '100%',
+    paddingHorizontal: 20,
+  },
+  innerContainer: {
+    width: '100%',
+    padding: 14,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+  },
+  content: {
+    fontWeight: '600',
+    fontSize: 14,
+    marginVertical: 12,
+  },
+  button: {
+    width: '100%',
+    paddingVertical: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 12,
+    backgroundColor: '#EE8432',
+  },
+  buttonText: {
+    fontWeight: '600',
+    fontSize: 14,
+    color: 'white',
+  },
+});
 
-export default StatusModal
+export default StatusModal;
